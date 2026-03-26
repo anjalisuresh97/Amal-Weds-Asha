@@ -9,6 +9,13 @@
   <meta property="og:description" content="Join us in celebrating the wedding of Amal and Asha.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://framerusercontent.com/images/025XnvK41fOjF7kG0dgCunVNTcc.png?width=1347">
+  <meta property="og:image:alt" content="Wedding invitation for Amal and Asha">
+  <meta property="og:image:width" content="1347">
+  <meta property="og:image:height" content="1347">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amal & Asha | Wedding Invitation">
+  <meta name="twitter:description" content="Join us in celebrating the wedding of Amal and Asha.">
+  <meta name="twitter:image" content="https://framerusercontent.com/images/025XnvK41fOjF7kG0dgCunVNTcc.png?width=1347">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400&family=Cormorant+Upright:wght@400;500;700&family=Gotu&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
@@ -721,7 +728,7 @@
         <div class="calendar-panel">
           <div class="calendar-inner">
             <h3 class="calendar-heading">Add to<br>calendar</h3>
-            <p class="calendar-copy">Tap below to open this wedding invite in Google Calendar.</p>
+            <p class="calendar-copy">Tap below to add this event to your calendar.</p>
             <p class="calendar-note" id="calendarNote">Wedding date and time are still needed to create the exact calendar entry.</p>
             <a class="calendar-btn" id="calendarLink" href="https://calendar.google.com/calendar/u/0/r/eventedit" target="_blank" rel="noopener">Add To Calendar</a>
           </div>
@@ -767,6 +774,14 @@
     const weddingTimeLabel = document.getElementById("weddingTimeLabel");
     const venueDateTimeLabel = document.getElementById("venueDateTimeLabel");
     const countdown = document.getElementById("countdown");
+
+    function startAudio() {
+      audio.muted = false;
+      audio.play().then(() => {
+        musicToggle.setAttribute("aria-pressed", "true");
+        musicToggle.lastElementChild.textContent = "Music On";
+      }).catch(() => {});
+    }
 
     function formatDateDisplay(dateString) {
       if (!dateString) return "Date to be added";
@@ -850,9 +865,7 @@
 
     function toggleAudio() {
       if (audio.paused) {
-        audio.play().catch(() => {});
-        musicToggle.setAttribute("aria-pressed", "true");
-        musicToggle.lastElementChild.textContent = "Music On";
+        startAudio();
       } else {
         audio.pause();
         musicToggle.setAttribute("aria-pressed", "false");
@@ -864,9 +877,13 @@
     updateCalendar();
     updateCountdown();
     setInterval(updateCountdown, 1000);
+    window.addEventListener("load", startAudio);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && audio.paused) startAudio();
+    }, { once: true });
 
     document.addEventListener("click", () => {
-      audio.play().catch(() => {});
+      startAudio();
     }, { once: true });
   </script>
 </body>
