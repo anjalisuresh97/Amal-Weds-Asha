@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amal &amp; Asha | Wedding Invitation</title>
+  <meta name="description" content="Digital wedding invitation for Amal and Asha">
+  <meta property="og:title" content="Amal & Asha | Wedding Invitation">
+  <meta property="og:description" content="Join us in celebrating the wedding of Amal and Asha.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://framerusercontent.com/images/025XnvK41fOjF7kG0dgCunVNTcc.png?width=1347">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400&family=Cormorant+Upright:wght@400;500;700&family=Gotu&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #12071f;
+      --text: #e6d3ff;
+      --muted: #d1b5f1;
+      --pink: #f65bb0;
+      --cyan: #00eaff;
+      --blue: #3fa9ff;
+      --panel: #4e3474;
+      --shadow: 0 20px 60px rgba(0, 0, 0, .35);
+      --container: min(100% - 32px, 1100px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Cormorant", serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      background:
+        linear-gradient(180deg, rgba(16, 7, 27, .28) 0%, rgba(16, 7, 27, .54) 42%, rgba(16, 7, 27, .88) 100%),
+        url("https://framerusercontent.com/images/025XnvK41fOjF7kG0dgCunVNTcc.png?width=1347") center top / cover no-repeat;
+    }
+
+    .top-fade {
+      position: fixed;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 140px;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(17, 7, 29, .9), rgba(17, 7, 29, 0));
+      z-index: 5;
+    }
+
+    .music-pill {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 6;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 999px;
+      background: rgba(253, 58, 153, .88);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+    }
+
+    .music-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border: 0;
+      background: transparent;
+      color: #17091f;
+      font: 600 13px/1 "Manrope", sans-serif;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .music-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #17091f;
+      box-shadow: 0 0 0 0 rgba(23, 9, 31, .45);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(23, 9, 31, .45); }
+      70% { box-shadow: 0 0 0 12px rgba(23, 9, 31, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(23, 9, 31, 0); }
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      padding: 110px 0 72px;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .floating-lanterns,
+    .floating-shells {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .lantern,
+    .shell {
+      position: absolute;
+      opacity: .95;
+      filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .28));
+      animation: drift 7s ease-in-out infinite alternate;
+    }
+
+    .lantern img,
+    .shell img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .lantern.one { top: 5%; left: 5%; width: 110px; transform: rotate(-14deg); }
+    .lantern.two { top: 20%; right: 8%; width: 92px; transform: rotate(12deg); animation-duration: 8s; }
+    .lantern.three { top: 48%; left: -10px; width: 82px; transform: rotate(8deg); animation-duration: 9s; }
+    .lantern.four { top: 58%; right: 4%; width: 112px; transform: rotate(-10deg); }
+    .shell.one { bottom: 18%; left: 10%; width: 58px; transform: rotate(-12deg); }
+    .shell.two { bottom: 24%; right: 12%; width: 68px; transform: rotate(22deg); animation-duration: 8.4s; }
+
+    @keyframes drift {
+      from { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+      to { transform: translateY(-18px) rotate(calc(var(--rotation, 0deg) + 4deg)); }
+    }
+
+    .hero-copy {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .eyebrow {
+      margin: 0 0 28px;
+      font-family: "Gotu", sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text);
+      letter-spacing: .04em;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 22px;
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #f8e7ff;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, .28);
+    }
+
+    .names {
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+    }
+
+    .names .name {
+      margin: 0;
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(4rem, 11vw, 7rem);
+      line-height: .9;
+      letter-spacing: -.04em;
+    }
+
+    .names .name.groom { color: #adbaff; }
+    .names .amp { color: var(--cyan); font-size: clamp(5rem, 12vw, 7.5rem); line-height: .7; }
+    .names .name.bride { color: var(--blue); }
+
+    .invite {
+      padding: 72px 0 40px;
+      text-align: center;
+    }
+
+    .invite-stack {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      margin-top: 8px;
+    }
+
+    .family-block {
+      display: grid;
+      gap: 6px;
+      justify-items: center;
+      margin-top: 12px;
+    }
+
+    .ganesha {
+      width: 144px;
+      margin: 0 auto 20px;
+    }
+
+    .blessings,
+    .invite-copy,
+    .family-line,
+    .wedding-note {
+      margin: 0 auto;
+      max-width: 760px;
+      font-family: "Cormorant Upright", serif;
+      letter-spacing: -.03em;
+      line-height: 1.08;
+    }
+
+    .blessings,
+    .family-line,
+    .invite-copy,
+    .wedding-note {
+      font-size: clamp(1.7rem, 4vw, 2.2rem);
+    }
+
+    .invite-badge {
+      margin: 16px 0;
+      font-family: "Manrope", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .couple-focus {
+      margin: 1px 0;
+      font-size: clamp(3.3rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: .95;
+    }
+
+    .wedding-section {
+      padding: 32px 0 24px;
+    }
+
+    .section-title,
+    .section-subtitle {
+      margin: 0;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(2.3rem, 5vw, 3.1rem);
+      letter-spacing: -.03em;
+    }
+
+    .section-subtitle {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .family-block {
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      margin: 10px auto 0;
+    }
+
+    .family-block .family-line {
+      margin: 0;
+    }
+
+    .divider-line {
+      margin: 4px 0;
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(1.7rem, 4vw, 2.2rem);
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .event-grid {
+      margin: 34px auto 0;
+      width: min(100%, 420px);
+      position: relative;
+    }
+
+    .event-card {
+      position: relative;
+      min-height: 570px;
+      padding: 34px 34px 46px;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      text-align: center;
+      filter: drop-shadow(0 0 9px rgba(0, 0, 0, .8));
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://framerusercontent.com/images/igxDnCEjBozB9NGYPnTUlljFk.png?width=1024") center / contain no-repeat;
+      z-index: 0;
+    }
+
+    .event-card::after {
+      content: "";
+      position: absolute;
+      inset: 52px;
+      border-radius: 84px;
+      background:
+        linear-gradient(180deg, rgba(24, 8, 42, .62), rgba(24, 8, 42, .78)),
+        url("https://framerusercontent.com/images/zUjMeX1Vi81LrP1ei9hBLurabM.png?width=1024") center / cover no-repeat;
+      z-index: 0;
+    }
+
+    .event-card-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 60px 28px;
+    }
+
+    .event-title {
+      margin: 0;
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(2.8rem, 7vw, 4rem);
+      line-height: .8;
+      color: var(--text);
+      text-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+    }
+
+    .event-detail {
+      margin: 0;
+      font-size: 1.28rem;
+      line-height: 1.1;
+      color: var(--text);
+      text-shadow: 0 4px 14px rgba(0, 0, 0, .4);
+    }
+
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(8px);
+      font: 600 12px/1 "Manrope", sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, .18);
+    }
+
+    .map-link svg {
+      width: 16px;
+      height: 16px;
+      flex: none;
+      fill: currentColor;
+    }
+
+    .calendar-panel {
+      position: relative;
+      margin: 34px auto 0;
+      width: min(100%, 1120px);
+      min-height: 650px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 138px 120px;
+      color: var(--panel);
+    }
+
+    .calendar-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://framerusercontent.com/images/eJP5CWHTXk7vpBFwgKNnevhWwso.png?width=1024") center / contain no-repeat;
+      z-index: 0;
+    }
+
+    .calendar-inner {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 420px);
+      max-width: 420px;
+    }
+
+    .calendar-heading {
+      margin: 0;
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: .92;
+      letter-spacing: -.04em;
+    }
+
+    .calendar-copy {
+      margin: 18px 0 0;
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: rgba(78, 52, 116, .92);
+    }
+
+    .calendar-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      min-width: 180px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(78, 52, 116, .16);
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 16px 34px rgba(78, 52, 116, .12);
+      font: 600 12px/1 "Manrope", sans-serif;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--panel);
+    }
+
+    .calendar-note {
+      margin-top: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: rgba(78, 52, 116, .84);
+    }
+
+    .calendar-note strong {
+      font-weight: 800;
+      color: var(--panel);
+    }
+
+    .venue-datetime {
+      margin-top: 4px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #fff;
+    }
+
+    .countdown-wrap {
+      margin-top: 68px;
+      background:
+        linear-gradient(180deg, rgba(4, 15, 46, .42), rgba(4, 15, 46, .58)),
+        url("https://framerusercontent.com/images/RttAsgUe3QcIagbPWF96SYxFYE.png?width=1336") center / cover no-repeat;
+    }
+
+    .countdown-inner {
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 56px 0;
+    }
+
+    .countdown-title {
+      margin: 0 0 18px;
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      color: #fff;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .count-item {
+      min-width: 82px;
+      padding: 14px 12px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(8px);
+    }
+
+    .count-number {
+      display: block;
+      font-family: "Cormorant Upright", serif;
+      font-size: 2.3rem;
+      line-height: .95;
+      color: #fff;
+    }
+
+    .count-label {
+      display: block;
+      margin-top: 6px;
+      font: 500 12px/1 "Manrope", sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .86);
+    }
+
+    .footer-copy,
+    .footer-signoff {
+      margin: 0;
+      color: #fff;
+    }
+
+    .footer-copy {
+      max-width: 520px;
+      font-family: "Cormorant Upright", serif;
+      font-size: 1.05rem;
+    }
+
+    .footer-signoff {
+      margin-top: 22px;
+      font-family: "Cormorant Upright", serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: .88;
+    }
+
+    @media (max-width: 809px) {
+      .page {
+        background:
+          linear-gradient(180deg, rgba(16, 7, 27, .34) 0%, rgba(16, 7, 27, .58) 38%, rgba(16, 7, 27, .9) 100%),
+          url("https://framerusercontent.com/images/QxCj6eoHIK02vQBQC80q9Ed7HsI.png?width=693") center top / cover no-repeat;
+      }
+
+      .music-pill {
+        top: 14px;
+        right: 14px;
+      }
+
+      .music-toggle {
+        padding: 11px 15px;
+        gap: 8px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 92px;
+      }
+
+      .hero-copy {
+        padding-top: 42px;
+      }
+
+      .lantern.one { top: 7%; left: -18px; width: 84px; }
+      .lantern.two { top: 14%; right: -10px; width: 78px; }
+      .lantern.three { top: 56%; left: -12px; width: 64px; }
+      .lantern.four { top: 62%; right: -8px; width: 90px; }
+      .shell.one { bottom: 12%; left: 3%; width: 48px; }
+      .shell.two { bottom: 18%; right: 4%; width: 54px; }
+
+      .ganesha {
+        width: 118px;
+      }
+
+      .event-card {
+        min-height: 520px;
+        padding: 20px;
+      }
+
+      .event-card::after {
+        inset: 42px;
+        border-radius: 64px;
+      }
+
+      .event-card-content {
+        padding: 52px 20px;
+        gap: 12px;
+      }
+
+      .calendar-panel {
+        width: min(100%, 100vw);
+        min-height: 600px;
+        padding: 126px 48px;
+      }
+
+      .calendar-inner {
+        width: min(100%, 252px);
+        max-width: 252px;
+      }
+
+      .calendar-heading {
+        font-size: clamp(1.75rem, 7vw, 2.35rem);
+        line-height: .9;
+      }
+
+      .calendar-copy {
+        font-size: .88rem;
+        line-height: 1.3;
+      }
+
+      .calendar-note {
+        font-size: .86rem;
+      }
+
+      .calendar-btn {
+        min-width: 168px;
+        padding: 11px 16px;
+        font-size: 11px;
+      }
+
+      .venue-datetime {
+        font-size: 1rem;
+      }
+
+      .count-item {
+        min-width: 72px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-fade"></div>
+
+  <div class="music-pill">
+    <button class="music-toggle" type="button" id="musicToggle" aria-pressed="true">
+      <span class="music-dot" aria-hidden="true"></span>
+      <span>Music On</span>
+    </button>
+    <audio id="bgMusic" loop autoplay preload="metadata">
+      <source src="https://framerusercontent.com/assets/q8x7MYVF61gOLfkcxdG7dlXjxw.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <main class="page">
+    <section class="hero">
+      <div class="floating-lanterns" aria-hidden="true">
+        <div class="lantern one" style="--rotation:-14deg;"><img src="https://framerusercontent.com/images/6tUL6N8p40INoMoTwAhxIStFQEM.png?width=1024" alt=""></div>
+        <div class="lantern two" style="--rotation:12deg;"><img src="https://framerusercontent.com/images/6tUL6N8p40INoMoTwAhxIStFQEM.png?width=1024" alt=""></div>
+        <div class="lantern three" style="--rotation:8deg;"><img src="https://framerusercontent.com/images/6tUL6N8p40INoMoTwAhxIStFQEM.png?width=1024" alt=""></div>
+        <div class="lantern four" style="--rotation:-10deg;"><img src="https://framerusercontent.com/images/6tUL6N8p40INoMoTwAhxIStFQEM.png?width=1024" alt=""></div>
+      </div>
+      <div class="floating-shells" aria-hidden="true">
+        <div class="shell one" style="--rotation:-12deg;"><img src="https://framerusercontent.com/images/CQsVmcAHAC441rJAPrhg4DpJavM.png?width=1024" alt=""></div>
+        <div class="shell two" style="--rotation:22deg;"><img src="https://framerusercontent.com/images/OAlIzV1uu4EeCKNBuX4cLuLn8Y.png?width=1024" alt=""></div>
+      </div>
+
+      <div class="container hero-copy">
+        <p class="eyebrow hero-eyebrow">The Wedding of</p>
+        <div class="names" aria-label="Couple names">
+          <h1 class="name groom">Amal B S</h1>
+          <div class="amp">&amp;</div>
+          <h2 class="name bride">Asha Ramesh</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite">
+      <div class="container">
+        <p class="eyebrow">ॐ श्री गणेशाय नम</p>
+        <img class="ganesha" src="https://framerusercontent.com/images/Vds0dp5DxZQ4Ua7F5vNHd4ZcoRc.png?width=1024" alt="Ganesha illustration">
+        <p class="blessings">With the blessings of</p>
+        <div class="family-block">
+          <p class="family-line">Sm. Biswas D &amp; Smt. Sindhu C</p>
+          <p class="family-line">invite you to join the wedding celebration of their son</p>
+          <p class="couple-focus blessings">Amal</p>
+          <p class="couple-focus blessings">&amp;</p>
+          <p class="couple-focus blessings">Asha</p>
+          <p class="family-line">Daughter of</p>
+          <p class="family-line">Mr. Ramesan T &amp; Mrs. Beena Kumary,</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wedding-section">
+      <div class="container">
+        <h2 class="section-title">Wedding Details</h2>
+
+        <div class="event-grid">
+          <article class="event-card">
+            <div class="event-card-content">
+              <h3 class="event-title">Wedding</h3>
+              <p class="event-detail" id="weddingDateLabel">Date to be added</p>
+              <p class="event-detail">Sigma Convention Centre</p>
+              <p class="event-detail">Alayamon PO, Anchal, Kollam, Kerala</p>
+              <p class="event-detail" id="weddingTimeLabel">Time to be added</p>
+              <p class="venue-datetime" id="venueDateTimeLabel">Date and time to be added</p>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Sigma+Convention+Centre,+Alayamon+PO,+Anchal,+Kollam,+Kerala" target="_blank" rel="noopener" aria-label="View venue on Google Maps">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2c-3.87 0-7 3.13-7 7 0 5.15 7 13 7 13s7-7.85 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/>
+                </svg>
+                <span>View on Google Maps</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="calendar-panel">
+          <div class="calendar-inner">
+            <h3 class="calendar-heading">Add to<br>calendar</h3>
+            <p class="calendar-copy">Tap below to open this wedding invite in Google Calendar.</p>
+            <p class="calendar-note" id="calendarNote">Wedding date and time are still needed to create the exact calendar entry.</p>
+            <a class="calendar-btn" id="calendarLink" href="https://calendar.google.com/calendar/u/0/r/eventedit" target="_blank" rel="noopener">Add To Calendar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="countdown-wrap">
+      <div class="container countdown-inner">
+        <div>
+          <h2 class="countdown-title">The countdown begins</h2>
+          <div class="countdown" id="countdown">
+            <div class="count-item"><span class="count-number">00</span><span class="count-label">Days</span></div>
+            <div class="count-item"><span class="count-number">00</span><span class="count-label">Hours</span></div>
+            <div class="count-item"><span class="count-number">00</span><span class="count-label">Min</span></div>
+            <div class="count-item"><span class="count-number">00</span><span class="count-label">Sec</span></div>
+          </div>
+          <p class="footer-copy">Our families are excited that you are able to join us in celebrating what we hope will be one of the happiest days of our lives.</p>
+          <p class="footer-signoff">Amal<br>&amp;<br>Asha</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const inviteData = {
+      groom: "Amal",
+      bride: "Asha",
+      title: "Amal & Asha Wedding",
+      venueName: "Sigma Convention Centre",
+      venueAddress: "Sigma Convention Centre, Alayamon PO, Anchal, Kollam, Kerala",
+      start: "2026-05-11T12:15:00+05:30",
+      end: "2026-05-11T12:45:00+05:30",
+      timezone: "Asia/Kolkata",
+      details: "Wedding celebration of Amal and Asha. Muhurtham: 12.15 PM to 12.45 PM."
+    };
+
+    const audio = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const calendarLink = document.getElementById("calendarLink");
+    const calendarNote = document.getElementById("calendarNote");
+    const weddingDateLabel = document.getElementById("weddingDateLabel");
+    const weddingTimeLabel = document.getElementById("weddingTimeLabel");
+    const venueDateTimeLabel = document.getElementById("venueDateTimeLabel");
+    const countdown = document.getElementById("countdown");
+
+    function formatDateDisplay(dateString) {
+      if (!dateString) return "Date to be added";
+      return new Intl.DateTimeFormat("en-IN", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }).format(new Date(dateString));
+    }
+
+    function formatTimeDisplay(dateString) {
+      if (!dateString) return "Time to be added";
+      return new Intl.DateTimeFormat("en-IN", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+      }).format(new Date(dateString));
+    }
+
+    function formatDateTimeDisplay(dateString) {
+      if (!dateString) return "Date and time to be added";
+      const datePart = new Intl.DateTimeFormat("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }).format(new Date(dateString));
+      return `${datePart} at ${formatTimeDisplay(dateString)}`;
+    }
+
+    function formatMuhurthamRange(startDateString, endDateString) {
+      if (!startDateString || !endDateString) return "Time to be added";
+      return `Muhurtham: ${formatTimeDisplay(startDateString)} - ${formatTimeDisplay(endDateString)}`;
+    }
+
+    function googleDate(dateString) {
+      return new Date(dateString).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+    }
+
+    function updateCalendar() {
+      weddingDateLabel.textContent = formatDateDisplay(inviteData.start);
+      weddingTimeLabel.textContent = formatMuhurthamRange(inviteData.start, inviteData.end);
+      venueDateTimeLabel.textContent = formatDateTimeDisplay(inviteData.start);
+
+      if (!inviteData.start || !inviteData.end) {
+        calendarLink.href = "https://calendar.google.com/calendar/u/0/r/eventedit";
+        calendarNote.textContent = "Wedding date and time are still needed to create the exact calendar entry.";
+        return;
+      }
+
+      const params = new URLSearchParams({
+        action: "TEMPLATE",
+        text: inviteData.title,
+        dates: `${googleDate(inviteData.start)}/${googleDate(inviteData.end)}`,
+        details: inviteData.details,
+        location: inviteData.venueAddress,
+        ctz: inviteData.timezone
+      });
+
+      calendarLink.href = `https://calendar.google.com/calendar/render?${params.toString()}`;
+      calendarNote.innerHTML = `<strong>${formatDateDisplay(inviteData.start)} at ${formatTimeDisplay(inviteData.start)}</strong>`;
+    }
+
+    function updateCountdown() {
+      if (!inviteData.start) return;
+
+      const target = new Date(inviteData.start).getTime();
+      const now = Date.now();
+      const diff = Math.max(target - now, 0);
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor(diff / 3600000) % 24;
+      const minutes = Math.floor(diff / 60000) % 60;
+      const seconds = Math.floor(diff / 1000) % 60;
+      const values = [days, hours, minutes, seconds];
+
+      countdown.querySelectorAll(".count-number").forEach((node, index) => {
+        node.textContent = String(values[index]).padStart(2, "0");
+      });
+    }
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+        musicToggle.setAttribute("aria-pressed", "true");
+        musicToggle.lastElementChild.textContent = "Music On";
+      } else {
+        audio.pause();
+        musicToggle.setAttribute("aria-pressed", "false");
+        musicToggle.lastElementChild.textContent = "Music Off";
+      }
+    }
+
+    musicToggle.addEventListener("click", toggleAudio);
+    updateCalendar();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    document.addEventListener("click", () => {
+      audio.play().catch(() => {});
+    }, { once: true });
+  </script>
+</body>
+</html>
